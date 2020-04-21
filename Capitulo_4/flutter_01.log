@@ -1,0 +1,88 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter emulators --launch Pixel_2_API_R
+
+## exception
+
+ProcessException: ProcessException: Process exited abnormally:
+emulator: ERROR: x86 emulation currently requires hardware acceleration!
+Please ensure KVM is properly installed and usable.
+CPU acceleration status: This user doesn't have permissions to use KVM (/dev/kvm).
+The KVM line in /etc/group is: [LINE_NOT_FOUND]
+
+If the current user has KVM permissions,
+the KVM line in /etc/group should end with ":" followed by your username.
+
+If we see LINE_NOT_FOUND, the kv
+More info on configuring VM acceleration on Linux:
+https://developer.android.com/studio/run/emulator-acceleration#vm-linux
+General information on acceleration: https://developer.android.com/studio/run/emulator-acceleration.
+  Command: /home/daniel/Android/Sdk/emulator/emulator -avd Pixel_2_API_R
+
+```
+#0      RunResult.throwException (package:flutter_tools/src/base/process.dart:141:5)
+#1      _DefaultProcessUtils.run (package:flutter_tools/src/base/process.dart:275:19)
+<asynchronous suspension>
+#2      AndroidEmulator.launch (package:flutter_tools/src/android/android_emulator.dart:52:52)
+#3      EmulatorsCommand._launchEmulator (package:flutter_tools/src/commands/emulators.dart:74:31)
+<asynchronous suspension>
+#4      EmulatorsCommand.runCommand (package:flutter_tools/src/commands/emulators.dart:47:13)
+#5      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:615:18)
+#6      _asyncThenWrapperHelper.<anonymous closure> (dart:async-patch/async_patch.dart:73:64)
+#7      _rootRunUnary (dart:async/zone.dart:1134:38)
+#8      _CustomZone.runUnary (dart:async/zone.dart:1031:19)
+#9      _FutureListener.handleValue (dart:async/future_impl.dart:139:18)
+#10     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:680:45)
+#11     Future._propagateToListeners (dart:async/future_impl.dart:709:32)
+#12     Future._completeWithValue (dart:async/future_impl.dart:524:5)
+#13     Future._asyncComplete.<anonymous closure> (dart:async/future_impl.dart:554:7)
+#14     _rootRun (dart:async/zone.dart:1126:13)
+#15     _CustomZone.run (dart:async/zone.dart:1023:19)
+#16     _CustomZone.runGuarded (dart:async/zone.dart:925:7)
+#17     _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:965:23)
+#18     _microtaskLoop (dart:async/schedule_microtask.dart:43:21)
+#19     _startMicrotaskLoop (dart:async/schedule_microtask.dart:52:5)
+#20     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:118:13)
+#21     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:175:5)
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, v1.12.13+hotfix.8, on Linux, locale pt_BR.UTF-8)
+    [32m•[39m Flutter version 1.12.13+hotfix.8 at /home/daniel/Downloads/Programas/flutter
+    [32m•[39m Framework revision 0b8abb4724 (2 months ago), 2020-02-11 11:44:36 -0800
+    [32m•[39m Engine revision e1e6ced81d
+    [32m•[39m Dart version 2.7.0
+
+[33m[!][39m Android toolchain - develop for Android devices (Android SDK version 29.0.3)
+    [32m•[39m Android SDK at /home/daniel/Android/Sdk
+    [32m•[39m Android NDK location not configured (optional; useful for native profiling support)
+    [32m•[39m Platform android-29, build-tools 29.0.3
+    [32m•[39m Java binary at: /home/daniel/Downloads/Programas/android-studio/jre/bin/java
+    [32m•[39m Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b4-5784211)
+    [33m![39m Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses
+
+[33m[!][39m Android Studio (version 3.6)
+    [32m•[39m Android Studio at /home/daniel/Downloads/Programas/android-studio
+    [31m✗[39m Flutter plugin not installed; this adds Flutter specific functionality.
+    [31m✗[39m Dart plugin not installed; this adds Dart specific functionality.
+    [32m•[39m Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b4-5784211)
+
+[32m[✓][39m IntelliJ IDEA Community Edition (version 2019.3)
+    [32m•[39m IntelliJ at /home/daniel/Downloads/Programas/idea-IC-193.6911.18
+    [32m•[39m Flutter plugin version 45.1.2
+    [32m•[39m Dart plugin version 193.6911.31
+
+[33m[!][39m VS Code (version 1.44.0)
+    [32m•[39m VS Code at /usr/share/code
+    [31m✗[39m Flutter extension not installed; install from
+      https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+
+[33m[!][39m Connected device
+    [33m![39m No devices available
+
+[33m![39m Doctor found issues in 4 categories.
+```
