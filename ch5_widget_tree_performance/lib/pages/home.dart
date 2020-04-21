@@ -33,8 +33,17 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
     );
   }
+}
+
+void _incrementCounter() {
+
 }
 
 class RowAndColumnWidget extends StatelessWidget {
