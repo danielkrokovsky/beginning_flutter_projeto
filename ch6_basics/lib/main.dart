@@ -1,3 +1,7 @@
+import 'package:ch6_basics/pages/ContainerWithColumnRowWidget.dart';
+import 'package:ch6_basics/pages/ContainerWithColumnWidget.dart';
+import 'package:ch6_basics/pages/ContainerWithFlatButtonWidget.dart';
+import 'package:ch6_basics/pages/ContainerWithRowWidget.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -95,35 +99,46 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Center(
               child: Text('Bottom'),
             ),
+
           ),
           preferredSize: Size.fromHeight(75.0),
-
         ),
       ),
       body: Padding(
         // Center is a layout widget. It takes a single child and positions it
         padding: EdgeInsets.all(16.0),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child:Column(
-              children: <Widget>[
-                const ContainerWithBoxDecorationWidget(),
-              ],
-            )
-          )
-        ),
+            child: SingleChildScrollView(
+                child: Column(
+          children: <Widget>[
+            const ContainerWithBoxDecorationWidget(),
+          ],
+        ))),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.play_arrow),
+          backgroundColor: Colors.lightGreen.shade100,
+        ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.lightGreen.shade100,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Icon(Icons.pause),
+            Icon(Icons.stop),
+            Icon(Icons.access_time),
+            Padding(
+              padding: EdgeInsets.all(32.0),),
+          ],
+        ),
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
 
-class ContainerWithBoxDecorationWidget extends StatelessWidget{
-
+class ContainerWithBoxDecorationWidget extends StatelessWidget {
   const ContainerWithBoxDecorationWidget({
     Key key,
   }) : super(key: key);
@@ -131,19 +146,70 @@ class ContainerWithBoxDecorationWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Column(
+    return //MyHomePage();
+           ContainerWithFlatButtonWidget();
+           //ContainerWithColumnRowWidget();
+          //ContainerWithRowWidget();
+          //ContainerWithColumnWidget();
+
+      /*Column(
       children: <Widget>[
         Container(
           height: 100.0,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(100.0),
-              bottomRight: Radius.circular(10.0),
-            )
-          ),
-        ),
-      ],
-    );
-  }
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.white, Colors.lightGreen.shade500]),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.white,
+                  blurRadius: 10.0,
+                  offset: Offset(0.0, 10.0),
+                )
+              ],
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(100.0),
+                bottomRight: Radius.circular(10.0),
+              )),
+          child: Center(
+            child: RichText(
+                text: TextSpan(
+              text: 'Flutter World',
+              style: TextStyle(
+                fontSize: 24.0,
+                color: Colors.deepPurple,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.deepPurpleAccent,
+                decorationStyle: TextDecorationStyle.dotted,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.normal,
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: ' for',
+                ),
+                TextSpan(
+                  text: ' Mobile',
+                  style: TextStyle(
+                      color: Colors.deepOrange,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.bold),
+                ),
 
+                TextSpan(
+                  text: ' Mobile',
+                  style: TextStyle(
+                      color: Colors.deepOrange,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+
+            )),
+          ),
+        )
+      ],
+    );*/
+  }
 }
