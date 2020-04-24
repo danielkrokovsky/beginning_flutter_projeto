@@ -1,7 +1,10 @@
+import 'package:ch6_basics/pages/ButtonsWidget.dart';
 import 'package:ch6_basics/pages/ContainerWithColumnRowWidget.dart';
 import 'package:ch6_basics/pages/ContainerWithColumnWidget.dart';
 import 'package:ch6_basics/pages/ContainerWithFlatButtonWidget.dart';
 import 'package:ch6_basics/pages/ContainerWithRowWidget.dart';
+import 'package:ch6_basics/pages/PopupMenuButtonWidget.dart';
+import 'package:ch6_basics/pages/TodoMenuItem.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -91,29 +94,26 @@ class _MyHomePageState extends State<MyHomePage> {
         flexibleSpace: SafeArea(
           child: Icon(Icons.photo_camera, size: 75.0, color: Colors.white70),
         ),
-        bottom: PreferredSize(
-          child: Container(
-            color: Colors.lightGreen.shade100,
-            height: 75.0,
-            width: double.infinity,
-            child: Center(
-              child: Text('Bottom'),
-            ),
-
-          ),
-          preferredSize: Size.fromHeight(75.0),
-        ),
+        bottom: PopupMenuButtonWidget(),
       ),
       body: Padding(
-        // Center is a layout widget. It takes a single child and positions it
         padding: EdgeInsets.all(16.0),
         child: SafeArea(
-            child: SingleChildScrollView(
-                child: Column(
-          children: <Widget>[
-            const ContainerWithBoxDecorationWidget(),
-          ],
-        ))),
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                const ContainerWithColumnWidget(),
+                Divider(),
+                const ContainerWithColumnRowWidget(),
+                Divider(),
+                const ContainerWithBoxDecorationWidget(),
+                Divider(),
+                const ButtonsWidget(),
+                Divider()
+              ],
+            ),
+          ),
+        ),
       ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: FloatingActionButton(
@@ -121,19 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Icon(Icons.play_arrow),
           backgroundColor: Colors.lightGreen.shade100,
         ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.lightGreen.shade100,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Icon(Icons.pause),
-            Icon(Icons.stop),
-            Icon(Icons.access_time),
-            Padding(
-              padding: EdgeInsets.all(32.0),),
-          ],
-        ),
-      ),// This trailing comma makes auto-formatting nicer for build methods.
+
+      bottomNavigationBar: PopupMenuButtonWidget()
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
@@ -146,8 +136,9 @@ class ContainerWithBoxDecorationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return //MyHomePage();
-           ContainerWithFlatButtonWidget();
+
+    return ButtonsWidget();//MyHomePage();
+           //ContainerWithFlatButtonWidget();
            //ContainerWithColumnRowWidget();
           //ContainerWithRowWidget();
           //ContainerWithColumnWidget();

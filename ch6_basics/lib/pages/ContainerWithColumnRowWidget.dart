@@ -5,11 +5,15 @@ import 'package:flutter/cupertino.dart';
 
 class ContainerWithColumnRowWidget extends StatelessWidget{
 
+  const ContainerWithColumnRowWidget({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[

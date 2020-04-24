@@ -15,6 +15,7 @@ class ContainerWithFlatButtonWidget extends StatelessWidget{
       children: <Widget>[
         Row(
           children: <Widget>[
+            /*
             FlatButton(
               onPressed: () {},
               child: Text('Flag'),
@@ -24,7 +25,30 @@ class ContainerWithFlatButtonWidget extends StatelessWidget{
               child: Icon(Icons.flag),
               color: Colors.lightGreen,
               textColor: Colors.white,
+            ),*/
+            RaisedButton(
+              onPressed: () {},
+              child: Text('Save'),
             ),
+// Customize - right button
+            RaisedButton(
+              onPressed: () {},
+              child: Icon(Icons.save),
+              color: Colors.lightGreen,
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.flight),
+            ),
+// Customize - right button
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.flight),
+              iconSize: 42.0,
+              color: Colors.blue,
+              tooltip: 'Flight',
+            ),
+// Customize - right button
           ],
         ),
       ],
