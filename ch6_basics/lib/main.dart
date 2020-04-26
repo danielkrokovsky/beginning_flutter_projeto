@@ -109,7 +109,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 const ContainerWithBoxDecorationWidget(),
                 Divider(),
                 const ButtonsWidget(),
-                Divider()
+                Divider(),
+                Image(
+                  image: AssetImage("/lib/assets/images/logo.jpeg"),
+                  fit: BoxFit.cover,
+                ),
+                Divider(),
+                Icon(
+                  Icons.brush,
+                  color: Colors.lightBlue,
+                  size: 48.0,
+                ),
               ],
             ),
           ),
