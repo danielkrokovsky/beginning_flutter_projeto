@@ -44,7 +44,6 @@ class _GratitudeState extends State<Gratitude> {
             onPressed: () => Navigator.pop(context, _selectedGratitude),
           )
         ],
-
       ),
       body: SafeArea(
         child: Padding(
